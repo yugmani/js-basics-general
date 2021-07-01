@@ -73,3 +73,24 @@ const myObj2 = {
 const booleanValue = myObj2.isStudent;
 // console.log(typeof booleanValue); // boolean
 
+// *********************************
+// unary plus (+)
+// *********************************
+
+// The unary plus (+) will attempt to convert the value next to it into a number.
+
+// This works with numbers, strings that contain only numbers as a string (ex. '246'), and boolean values.
+
+// For booleans, adding a + before a true value will convert it into 1 and false into 0.
+
+let myValue = '323';
+// console.log(+myValue); // 323  =>number
+
+let fname = 'Clark';
+// console.log(+fname); // NaN =>not a number
+
+let isLogged = true;
+// console.log(+isLogged); // 1
+
+let isEnrolled = false;
+// console.log(+isEnrolled); // 0
