@@ -29,3 +29,47 @@ delete myArray1[2]; // deleted element of index 2
 // console.log(myArray1); // ["cat", "hat", empty, "rat"]
 // console.log(myArray1[2]); // undefined
 
+// *********************************
+// Void
+// *********************************
+
+// The void operator will evaluate a given expression and then returns a value of undefined.
+
+// This is used often when it's useful to return an undefined value as part of a coding process.
+
+// It was often used with hyperlinks like javascript:void(0) to return undefined from a user click to prevent page reloading.
+
+function returnHello() {
+  return 'Hello guys!';
+}
+
+// console.log(returnHello()); // Hello guys!
+// console.log(void returnHello()); // undefined
+
+function addAB(a, b) {
+  return a + b;
+}
+
+// console.log(addAB(2, 3)); //5
+// console.log(void addAB(3, 5)); //undefined
+
+// *********************************
+// typeof
+// *********************************
+
+// The typeof operator will evaluate and return a string of the type of the operand value.
+
+// This can be useful when checking the type of value being held by a variable before performing additional operations upon the value.
+
+const myObj2 = {
+  name: 'Roaches',
+  age: 23,
+  isStudent: true
+};
+
+// console.log(typeof myObj2.name); // string
+// console.log(typeof myObj2.age); // number
+
+const booleanValue = myObj2.isStudent;
+// console.log(typeof booleanValue); // boolean
+
