@@ -120,3 +120,57 @@ let temp = '37.23';
 // console.log(-null); // -0
 // console.log(-undefined); // NaN
 // console.log(-'Hello'); // NaN
+
+// *********************************
+// Logical not(!)
+// *********************************
+
+// The logical not (!) operator will evaluate a value as truthy or falsy and return the negated value as a boolean.
+
+// When applied to non-empty strings, non-zero numbers, or object the logical not operator will return false since each of those data types is considered to be true.
+
+let lastName = 'George';
+// console.log(!lastName); // false
+
+let price = 76.32;
+// console.log(!price); // false
+
+let fruit = { name: 'banana' };
+// console.log(!fruit); // false
+
+// When the logical not is applied to a boolean value, it will return the negation of the boolean value.
+
+let isEnabled = true;
+// console.log(!isEnabled); // false
+
+// console.log(!true); // false
+// console.log(!false); // true
+
+// There are other values that are considered ‘falsy’ and will return true when the logical not operator is applied to an operand.
+
+// console.log(!null); // true
+// console.log(!undefined); // true
+// console.log(!NaN); // true
+// console.log(!''); // true
+// console.log(!0); // true
+
+// *********************************
+// Double Negation (!!)
+// *********************************
+
+// When applied to an operand, it will evaluate and convert the operand to a boolean value and then negate that boolean to return the value to the operand’s original ‘truthy’ or ‘falsy’ value.
+
+// This is a useful tool to use when a boolean value is needed in evaluations for things like logical operations.
+
+let isDisabled = true;
+// console.log(!!isDisabled); // true
+
+// console.log(!!true); // true
+// console.log(!!false); // false
+// console.log(!!null); // false
+// console.log(!!undefined); // false
+// console.log(!!NaN); // false
+// console.log(!!''); // false
+// console.log(!!0); // false
+
+// Reference: https://javascript.plainenglish.io/javascript-operators-unary-operators-e9d33c94db5c
