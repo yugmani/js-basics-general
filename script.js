@@ -94,3 +94,29 @@ let isLogged = true;
 
 let isEnrolled = false;
 // console.log(+isEnrolled); // 0
+
+let hot = '37.23';
+// console.log(+hot); // 37.23 => number
+
+// console.log(+true); // 1
+// console.log(+false); // 0
+
+// console.log(+'75'); // 75 => number
+// console.log(+null); // 0
+// console.log(+undefined); // NaN
+// console.log(+'Hello'); // NaN
+
+// *********************************
+// unary negative (-)
+// *********************************
+
+let temp = '37.23';
+// console.log(-temp); // -37.23
+
+// console.log(-true); // -1
+// console.log(-false); // -0
+
+// console.log(-75); // -75
+// console.log(-null); // -0
+// console.log(-undefined); // NaN
+// console.log(-'Hello'); // NaN
