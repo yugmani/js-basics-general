@@ -16,3 +16,19 @@ promise.then(res => console.log(res)).catch(err => console.log(err));
 
 // I am resolved
 // if you set `let flag = false` it will result => `Error: I am rejected`
+
+// async and await demo
+async function demo() {
+  let promist = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('I am resolved');
+    }, 1000);
+  });
+
+  let res = await promise;
+  console.log(res);
+}
+
+demo(); // I am resolved
+
+// The `await` keyword should only be used inside an `async` function.
