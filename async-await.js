@@ -61,3 +61,26 @@ async function foo() {
 foo();
 // You are resolved
 // end
+
+// *******************************
+// Handling Errors
+// *******************************
+
+// ****** try ... catch block ****
+async function boo() {
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('I am rejected'));
+    }, 1000);
+  });
+
+  try {
+    let res = await promise;
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+boo();      // Error: I am rejected
+
