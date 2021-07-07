@@ -176,7 +176,7 @@ async function orderProcess() {
   }
 }
 
-orderProcess();
+// orderProcess();
 
 // Order is for: Tea
 // Tea is prepared
