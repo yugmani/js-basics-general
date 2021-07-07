@@ -12,7 +12,7 @@ let promise = new Promise((resolve, reject) => {
   }, 1000);
 });
 
-promise.then(res => console.log(res)).catch(err => console.log(err));
+// promise.then(res => console.log(res)).catch(err => console.log(err));
 
 // I am resolved
 // if you set `let flag = false` it will result => `Error: I am rejected`
@@ -29,7 +29,7 @@ async function demo() {
   console.log(res);
 }
 
-demo(); // I am resolved
+// demo(); // I am resolved
 
 // The `await` keyword should only be used inside an `async` function.
 
@@ -40,7 +40,7 @@ async function greet() {
   return 'Welcome';
 }
 
-greet().then(res => console.log(res));
+// greet().then(res => console.log(res));
 // Welcome
 
 // ******* The await keyword *******
@@ -58,7 +58,7 @@ async function foo() {
   console.log('end');
 }
 
-foo();
+// foo();
 // You are resolved
 // end
 
@@ -82,7 +82,7 @@ async function boo() {
   }
 }
 
-boo(); // Error: I am rejected
+// boo(); // Error: I am rejected
 
 // ********* Promise.all() **********
 
@@ -107,33 +107,30 @@ async function goo() {
   console.log(results);
 }
 
-goo(); // (3) [1100, 3100, 2100]
-
+// goo(); // (3) [1100, 3100, 2100]
 
 // ********** Promise.race() ************
-
 
 // The Promise.race() method takes an iterable of Promises and returns a Promise which gets resolved/rejected as soon as any of the Promises resolved or rejected.
 
 async function moo() {
   let promise1 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-          resolve('Promise 1');
-      }, 1000);
+    setTimeout(() => {
+      resolve('Promise 1');
+    }, 1500);
   });
- 
+
   let promise2 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-          resolve('Promise 2');
-      }, 500);
+    setTimeout(() => {
+      resolve('Promise 2');
+    }, 1000);
   });
- 
- const result = await Promise.race([promise1, promise2]);
- console.log(result); // Promise 2
+
+  const result = await Promise.race([promise1, promise2]);
+  console.log(result); // Promise 2
 }
 
-​moo();
-
+// ​moo();
 
 // ********************************
 // Example: food order process
@@ -142,7 +139,7 @@ async function moo() {
 function takeOrder() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const order = (Math.random() * 10) <= 5 ? 'Coffee' : 'Tea';
+      const order = Math.random() * 10 <= 5 ? 'Coffee' : 'Tea';
     }, 1000);
   });
 }
