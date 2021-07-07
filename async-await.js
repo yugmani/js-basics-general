@@ -82,5 +82,29 @@ async function boo() {
   }
 }
 
-boo();      // Error: I am rejected
+boo(); // Error: I am rejected
 
+// ********* Promise.all() **********
+
+// The Promise.all() method takes an iterable of promises as an input and returns a single Promise.
+// It gets resolved when all the promises get resolved or any one of them gets rejected.
+
+function getPromise(delay) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(delay + 100);
+    }, delay);
+  });
+}
+
+async function goo() {
+  const results = await Promise.all([
+    getPromise(1000),
+    getPromise(3000),
+    getPromise(2000)
+  ]);
+
+  console.log(results);
+}
+
+goo();    // (3) [1100, 3100, 2100]
