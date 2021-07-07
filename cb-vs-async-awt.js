@@ -48,3 +48,35 @@ let inputUserProcess = () => {
 // invoke or call
 // inputUserProcess().then(result => greeting(result));
 // Hello Jessy;
+
+// *********** Promise.all() **********
+
+// The Promise.all(iterable) method returns a single Promise that resolves when all of the promises in the iterable argument have resolved or when the iterable argument contains no promises.
+
+// It rejects with the reason of the first promise that rejects.
+
+let promise1 = Promise.resolve(3);
+let promise2 = 42;
+let promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+// Promise.all([promise1, promise2, promise3]).then(result => console.log(result));
+//  (3) [3, 42, "foo"]
+
+// ********** Promise.race() **********
+
+// The Promise.race(iterable) method returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.
+
+let promiseFirst = Promise.resolve(3);
+let promiseSecond = 42;
+let promiseThird = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'large');
+});
+
+let promiseFourth = new Promise((resolve, reject) => {
+  setTimeout(resolve, 10, 'small');
+});
+
+Promise.race([promiseThird, promiseFourth]).then(result => console.log(result));
+// small
