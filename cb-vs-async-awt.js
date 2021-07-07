@@ -78,5 +78,42 @@ let promiseFourth = new Promise((resolve, reject) => {
   setTimeout(resolve, 10, 'small');
 });
 
-Promise.race([promiseThird, promiseFourth]).then(result => console.log(result));
+// Promise.race([promiseThird, promiseFourth]).then(result => console.log(result));
 // small
+
+// ******** Async & Await ************
+
+// The async function declaration defines an asynchronous function, which returns an AsyncFunction object.
+
+// Async/await is actually built on top of promises. It cannot be used with plain callbacks or node callbacks.
+
+// The word “async” before a function means one simple thing: a function always returns a promise. If the code has return <non-promise> in it, then JavaScript automatically wraps it into a resolved promise with that value.
+
+// The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+// a function log user name
+let greetPeople = name => {
+  console.log('Hello ' + name);
+};
+
+// function to process user
+let processingUserName = () => {
+  return new Promise((resolve, reject) => {
+    let name = 'Mirage';
+    if (name) resolve(name);
+    reject(false);
+  });
+};
+
+// The word 'async' before a function means one single thing: a function always returns a promise.
+async function asyncCall() {
+  // the keyword await makes JavaScript wait until that promise settles and returns its result.
+  let result = await processingUserName();
+
+  // expected output: 'resolved'
+  greetPeople(result);
+}
+
+// start a call
+// asyncCall(); // Hello Mirage
+
