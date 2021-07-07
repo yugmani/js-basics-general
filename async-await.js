@@ -140,6 +140,7 @@ function takeOrder() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const order = Math.random() * 10 <= 5 ? 'Coffee' : 'Tea';
+      resolve(order);
     }, 1000);
   });
 }
@@ -152,7 +153,7 @@ function makeOrder(order) {
   });
 }
 
-function serverOrder(order) {
+function serveOrder(order) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(order + ' is served');
@@ -176,3 +177,13 @@ async function orderProcess() {
 }
 
 orderProcess();
+
+// Order is for: Tea
+// Tea is prepared
+// Tea is served
+
+// Or
+
+// Order is for: Coffee
+// Coffee is prepared
+// Coffee is served
