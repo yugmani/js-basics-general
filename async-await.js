@@ -107,4 +107,75 @@ async function goo() {
   console.log(results);
 }
 
-goo();    // (3) [1100, 3100, 2100]
+goo(); // (3) [1100, 3100, 2100]
+
+
+// ********** Promise.race() ************
+
+
+// The Promise.race() method takes an iterable of Promises and returns a Promise which gets resolved/rejected as soon as any of the Promises resolved or rejected.
+
+async function moo() {
+  let promise1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+          resolve('Promise 1');
+      }, 1000);
+  });
+ 
+  let promise2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+          resolve('Promise 2');
+      }, 500);
+  });
+ 
+ const result = await Promise.race([promise1, promise2]);
+ console.log(result); // Promise 2
+}
+
+​moo();
+
+
+// ********************************
+// Example: food order process
+// ********************************
+
+function takeOrder() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const order = (Math.random() * 10) <= 5 ? 'Coffee' : 'Tea';
+    }, 1000);
+  });
+}
+
+function makeOrder(order) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(order + ' is prepared');
+    }, 1000);
+  });
+}
+
+function serverOrder(order) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(order + ' is served');
+    }, 1000);
+  });
+}
+
+async function orderProcess() {
+  try {
+    const order = await takeOrder();
+    console.log('Order is for: ' + order);
+
+    let orderMakingStatus = await makeOrder(order);
+    console.log(orderMakingStatus);
+
+    let orderServingStatus = await serveOrder(order);
+    console.log(orderServingStatus);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+orderProcess();
