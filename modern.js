@@ -33,7 +33,25 @@ const maskedPhoneNumber = last4Digits.padStart(phoneLength, '*');
 // A popular scenario where this comes in handy, is for masking a phone number or an email address.
 // In payment gateways or secure portals, it is very common to hide the contact information and show the last 3–4 characters, just enough for users to identify if it is meant for them.
 
-// ************ 2. Rest Parameters & Spread Syntax **************
+// ********* 2. Array.prototype.includes() *********
+
+// The includes method will return true, if the element exists in the given array.
+
+const myArray = ['a', 'b', 'c', 'd', 'e'];
+
+// console.log(myArray.includes('c')); // true
+// console.log(myArray.includes('ac')); // false
+// console.log(myArray.includes(2)); // false
+
+// If the method is supplied with a second argument fromIndex, the array will then be searched from that given index —
+
+// console.log(myArray.includes('b', 1)); // true
+// console.log(myArray.includes('e', 4)); // true
+// console.log(myArray.includes('c', 3)); // false
+// console.log(myArray.includes('a', -5)); // true
+// console.log(myArray.slice(-5, 1));  // ["a"]
+
+// ************ 3. Rest Parameters & Spread Syntax **************
 
 // Rest Parameters
 // ***********************************
@@ -51,15 +69,14 @@ function getSum(...numbers) {
 // console.log(getSum(0,1,2,3,4,5,6,7,8,9)); // 45
 // console.log(getSum(13,5,47,89,55)); // 209
 
-
-// We can also choose to define the first few parameters, and let the rest of the arguments get collected in the array. 
-// But, it can only be done from the front, and not the other way around. 
+// We can also choose to define the first few parameters, and let the rest of the arguments get collected in the array.
+// But, it can only be done from the front, and not the other way around.
 // In other words, only the last parameter can be a rest parameter —
 
-function myFunction(a, b, ...otherArguments){
-  console.log("First Two Arguments: " + a+" & "+ b);  // First Two Arguments: 1 & 2
+function myFunction(a, b, ...otherArguments) {
+  console.log('First Two Arguments: ' + a + ' & ' + b); // First Two Arguments: 1 & 2
   let sumFirstTwo = a + b;
-  console.log(sumFirstTwo);   // 3 => 1+2
+  console.log(sumFirstTwo); // 3 => 1+2
   let remainings = otherArguments;
   return remainings;
 }
