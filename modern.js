@@ -50,3 +50,18 @@ function getSum(...numbers) {
 // console.log(getSum(1,2,3)); // 6;
 // console.log(getSum(0,1,2,3,4,5,6,7,8,9)); // 45
 // console.log(getSum(13,5,47,89,55)); // 209
+
+
+// We can also choose to define the first few parameters, and let the rest of the arguments get collected in the array. 
+// But, it can only be done from the front, and not the other way around. 
+// In other words, only the last parameter can be a rest parameter —
+
+function myFunction(a, b, ...otherArguments){
+  console.log("First Two Arguments: " + a+" & "+ b);  // First Two Arguments: 1 & 2
+  let sumFirstTwo = a + b;
+  console.log(sumFirstTwo);   // 3 => 1+2
+  let remainings = otherArguments;
+  return remainings;
+}
+
+// console.log(myFunction(1,2,3,4,5)); // [3, 4, 5]
