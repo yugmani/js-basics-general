@@ -258,11 +258,38 @@ console.log(myBio.name); // Deuba
 myBio.occupation ||= 'Engineer';
 console.log(myBio.occupation); // Engineer;
 
+myBio.isEnrolled ||= true;
+console.log(myBio.isEnrolled);
+
 console.log(myBio);
-// {name: "Deuba", age: 0, occupation: "Engineer"}
+// {name: "Deuba", age: 0, occupation: "Engineer", isEnrolled: true}
 
 myBio.name &&= 'Dina';
 console.log(myBio.name); // Dina
 
-myBio.occupation &&= 'Engineer';
-console.log(myBio.occupation);
+myBio.occupation &&= 'Coder';
+console.log(myBio.occupation); // Coder
+
+myBio.isAdmin &&= true;
+console.log(myBio.isAdmin); // undefined
+
+console.log(myBio);
+// {name: "Dina", age: 0, occupation: "Coder", isEnrolled: true}
+
+// ********************************
+
+// In scenarios where we are not sure if a property exists in an object, but we need to manipulate it somehow, the logical OR assignment provides a cleaner alternative to undefined checks.
+
+// Let’s say, we need to find out the number of times an element repeats itself in an array.
+// The way I prefer to do this, is by iterating the array and storing the count of each element in an object —
+
+const messArray = [1, 2, 3, 4, 3, 1, 3, 4];
+const countArr = {};
+
+messArray.forEach(item => {
+  countArr[item] ||= 0;
+  countArr[item]++;
+});
+
+console.log(countArr);
+// {1: 2, 2: 1, 3: 3, 4: 2}
