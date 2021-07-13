@@ -193,3 +193,31 @@ const soccerPlayers = {
 // // (3) [13, 10, 9]
 // console.log(Object.entries(soccerPlayers));
 // [["ronaldo", 13], [messi", 10], ["kane", 9]]
+
+// ******* Optional Chaining *********
+
+// This feature comes in handy when you are dealing with unreliable, unpredictable data.
+// application breaks with a message like — `Uncaught TypeError: Cannot read property someProperty of undefined / null` can be fixed with the help of optional chaining.
+
+// The operator `?.` is going to go one level deep, only if the chain is not nullish(i.e. not null or undefined).
+
+const myObject = {};
+// console.log(myObject.address.city);
+// Uncaught TypeError: Cannot read property 'city' of undefined / null
+
+// console.log(myObject.address?.city); // undefined
+
+const yourObject = {
+  name:"harry",
+  age:23,
+  address:{city:"Los Angeles",
+street:"Beverly Blvd"}
+}
+
+// console.log(yourObject.address?.city);  // Los Angeles
+// console.log(yourObject.contact?.phone); // undefined
+
+// console.log(yourObject.contact.phone); 
+// TypeError: Cannot read property 'phone' of undefined
+
+
