@@ -139,40 +139,57 @@ let addToThreeFour = [-1, 0, ...arrayThree, 100, 200, ...arrayFour, 10, 11];
 // ***** Moving on to Objects ******
 
 const soccer = {
-  ronaldo:13,
-  messi:10,
-  kane:9
-}
+  ronaldo: 13,
+  messi: 10,
+  kane: 9
+};
 
 // cloning the original object `soccer`
-const players = {...soccer};
-console.log(players); // {ronaldo: 13, messi: 10, kane: 9}
+const players = { ...soccer };
+// console.log(players); // {ronaldo: 13, messi: 10, kane: 9}
 
 // updaing the cloned object does not affect the original object
 players.neymar = 11;
 players.ronaldo = 7;
-console.log(players);
+// console.log(players);
 // {ronaldo: 7, messi: 10, kane: 9, neymar: 11} =>see the changes
-console.log(soccer);
+// console.log(soccer);
 //  {ronaldo: 13, messi: 10, kane: 9} => no change in `soccer` original object
 
 // Extract some of the properties
-const {messi, kane, ...otherPlayers} = soccer;
+const { messi, kane, ...otherPlayers } = soccer;
 
 const updatedSoccer = {
   ...otherPlayers,
-  ronaldo:7
-}
+  ronaldo: 7
+};
 
-console.log(updatedSoccer); // {ronaldo: 7}
+// console.log(updatedSoccer); // {ronaldo: 7}
 
 // Adding more players and mix
-const additionalPlayers = {pique:3, ramos:4};
+const additionalPlayers = { pique: 3, ramos: 4 };
 const finalPlayers = {
   ...soccer,
   ...additionalPlayers
-}
+};
 
-console.log(finalPlayers); // {ronaldo: 13, messi: 10, kane: 9, pique: 3, ramos: 4}
+// console.log(finalPlayers); // {ronaldo: 13, messi: 10, kane: 9, pique: 3, ramos: 4}
 
+// ****** Object Iterators ******
 
+// Object.keys() returns an array of all the keys of an object,
+// Object.values() returns an array of all the values
+// Object.entries() returns an array of [key, value] pairs.
+
+const soccerPlayers = {
+  ronaldo: 13,
+  messi: 10,
+  kane: 9
+};
+
+// console.log(Object.keys(soccerPlayers));
+// //  (3) ["ronaldo", "messi", "kane"]
+// console.log(Object.values(soccerPlayers));
+// // (3) [13, 10, 9]
+// console.log(Object.entries(soccerPlayers));
+// [["ronaldo", 13], [messi", 10], ["kane", 9]]
