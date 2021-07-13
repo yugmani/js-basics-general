@@ -82,3 +82,35 @@ function myFunction(a, b, ...otherArguments) {
 }
 
 // console.log(myFunction(1,2,3,4,5)); // [3, 4, 5]
+
+// ***** SPREAD SYNTAX ******
+// ************************************
+
+// ***** To Shallow Copy
+// Any further operation on the cloned one will not affect the original array.
+
+let arrayFive = [1, 2, 3, 4, 5];
+let clonedArrayFive = [...arrayFive];
+console.log(clonedArrayFive); // (5) [1, 2, 3, 4, 5]
+
+// Changing cloned array
+console.log(clonedArrayFive.splice(0, 1)); // [1]
+console.log(clonedArrayFive); // (4) [2, 3, 4, 5]
+
+delete clonedArrayFive[1];
+console.log(clonedArrayFive); // (4) [2, empty, 4, 5] =>See index 1 is empty.
+
+clonedArrayFive.push(7);
+console.log(clonedArrayFive); // (5) [2, empty, 4, 5, 7]  => 7 added at the last.
+
+console.log(arrayFive); // (5) [1, 2, 3, 4, 5] => No change in original array.
+
+// ***** In a function Call
+// if we pass an array with the spread syntax, it will essentially expand it into a list of arguments.
+
+function getSum(...numbers) {
+  return numbers.reduce((acc, current) => acc + current);
+}
+
+const arrayNum = [1, 2, 3, 4, 5];
+console.log(getSum(...arrayNum)); // 15
