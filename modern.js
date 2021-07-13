@@ -124,16 +124,55 @@ let arrayFour = [4, 5, 6, 7];
 
 // Concatenating arrays
 let concateThreeFour = [...arrayThree, ...arrayFour];
-console.log(concateThreeFour); // (7) [1, 2, 3, 4, 5, 6, 7]
+// console.log(concateThreeFour); // (7) [1, 2, 3, 4, 5, 6, 7]
 
 // Adding Elements
 let addToThree = [0, ...arrayThree];
-console.log(addToThree); // (4) [0, 1, 2, 3]
+// console.log(addToThree); // (4) [0, 1, 2, 3]
 
 let addToFour = [...arrayFour, 8, 9];
-console.log(addToFour); // (6) [4, 5, 6, 7, 8, 9]
+// console.log(addToFour); // (6) [4, 5, 6, 7, 8, 9]
 
 let addToThreeFour = [-1, 0, ...arrayThree, 100, 200, ...arrayFour, 10, 11];
-console.log(addToThreeFour);  // (13) [-1, 0, 1, 2, 3, 100, 200, 4, 5, 6, 7, 10, 11]
+// console.log(addToThreeFour);  // (13) [-1, 0, 1, 2, 3, 100, 200, 4, 5, 6, 7, 10, 11]
+
+// ***** Moving on to Objects ******
+
+const soccer = {
+  ronaldo:13,
+  messi:10,
+  kane:9
+}
+
+// cloning the original object `soccer`
+const players = {...soccer};
+console.log(players); // {ronaldo: 13, messi: 10, kane: 9}
+
+// updaing the cloned object does not affect the original object
+players.neymar = 11;
+players.ronaldo = 7;
+console.log(players);
+// {ronaldo: 7, messi: 10, kane: 9, neymar: 11} =>see the changes
+console.log(soccer);
+//  {ronaldo: 13, messi: 10, kane: 9} => no change in `soccer` original object
+
+// Extract some of the properties
+const {messi, kane, ...otherPlayers} = soccer;
+
+const updatedSoccer = {
+  ...otherPlayers,
+  ronaldo:7
+}
+
+console.log(updatedSoccer); // {ronaldo: 7}
+
+// Adding more players and mix
+const additionalPlayers = {pique:3, ramos:4};
+const finalPlayers = {
+  ...soccer,
+  ...additionalPlayers
+}
+
+console.log(finalPlayers); // {ronaldo: 13, messi: 10, kane: 9, pique: 3, ramos: 4}
 
 
