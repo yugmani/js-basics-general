@@ -208,16 +208,35 @@ const myObject = {};
 // console.log(myObject.address?.city); // undefined
 
 const yourObject = {
-  name:"harry",
-  age:23,
-  address:{city:"Los Angeles",
-street:"Beverly Blvd"}
-}
+  name: 'harry',
+  age: 23,
+  address: { city: 'Los Angeles', street: 'Beverly Blvd' }
+};
 
 // console.log(yourObject.address?.city);  // Los Angeles
 // console.log(yourObject.contact?.phone); // undefined
 
-// console.log(yourObject.contact.phone); 
+// console.log(yourObject.contact.phone);
 // TypeError: Cannot read property 'phone' of undefined
 
+// ********* Nullish Coalescing Operator ********
 
+// The Logical OR would provide a default value if your variable is falsy (i.e. one of null, undefined, 0 and false).
+// Nullish Coalescing ?? would provide a default value if the variable is nullish (i.e. either null or undefined).
+
+const city = '' || 'New York';
+// console.log(city); // New York
+
+const someVariable1 = 0 || 'default'; // default
+const someVariable2 = null || 'default'; // default
+const someVariable3 = false || 'default'; // default
+const someVariable4 = undefined || 'default'; // default
+const someVariable5 = 'truthy' || 'default'; // truthy
+// console.log(someVariable5); // truthy
+
+const var1 = 0 ?? 'default'; // 0
+// console.log(var1); // 0
+const var2 = null ?? 'default'; // default
+const var3 = false ?? 'default'; // false
+const var4 = undefined ?? 'default'; // default
+const var5 = 'non-nullish' ?? 'default'; // non-nullish
