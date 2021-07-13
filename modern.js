@@ -91,19 +91,19 @@ function myFunction(a, b, ...otherArguments) {
 
 let arrayFive = [1, 2, 3, 4, 5];
 let clonedArrayFive = [...arrayFive];
-console.log(clonedArrayFive); // (5) [1, 2, 3, 4, 5]
+// console.log(clonedArrayFive); // (5) [1, 2, 3, 4, 5]
 
 // Changing cloned array
-console.log(clonedArrayFive.splice(0, 1)); // [1]
-console.log(clonedArrayFive); // (4) [2, 3, 4, 5]
+// console.log(clonedArrayFive.splice(0, 1)); // [1]
+// console.log(clonedArrayFive); // (4) [2, 3, 4, 5]
 
 delete clonedArrayFive[1];
-console.log(clonedArrayFive); // (4) [2, empty, 4, 5] =>See index 1 is empty.
+// console.log(clonedArrayFive); // (4) [2, empty, 4, 5] =>See index 1 is empty.
 
 clonedArrayFive.push(7);
-console.log(clonedArrayFive); // (5) [2, empty, 4, 5, 7]  => 7 added at the last.
+// console.log(clonedArrayFive); // (5) [2, empty, 4, 5, 7]  => 7 added at the last.
 
-console.log(arrayFive); // (5) [1, 2, 3, 4, 5] => No change in original array.
+// console.log(arrayFive); // (5) [1, 2, 3, 4, 5] => No change in original array.
 
 // ***** In a function Call
 // if we pass an array with the spread syntax, it will essentially expand it into a list of arguments.
@@ -113,4 +113,27 @@ function getSum(...numbers) {
 }
 
 const arrayNum = [1, 2, 3, 4, 5];
-console.log(getSum(...arrayNum)); // 15
+// console.log(getSum(...arrayNum)); // 15
+
+// ******* Array Operations *******
+
+// Spread syntax provides an easy alternative to handle basic array operations like concatenation, adding elements at different positions and so on.
+
+let arrayThree = [1, 2, 3];
+let arrayFour = [4, 5, 6, 7];
+
+// Concatenating arrays
+let concateThreeFour = [...arrayThree, ...arrayFour];
+console.log(concateThreeFour); // (7) [1, 2, 3, 4, 5, 6, 7]
+
+// Adding Elements
+let addToThree = [0, ...arrayThree];
+console.log(addToThree); // (4) [0, 1, 2, 3]
+
+let addToFour = [...arrayFour, 8, 9];
+console.log(addToFour); // (6) [4, 5, 6, 7, 8, 9]
+
+let addToThreeFour = [-1, 0, ...arrayThree, 100, 200, ...arrayFour, 10, 11];
+console.log(addToThreeFour);  // (13) [-1, 0, 1, 2, 3, 100, 200, 4, 5, 6, 7, 10, 11]
+
+
