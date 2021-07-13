@@ -240,3 +240,29 @@ const var2 = null ?? 'default'; // default
 const var3 = false ?? 'default'; // false
 const var4 = undefined ?? 'default'; // default
 const var5 = 'non-nullish' ?? 'default'; // non-nullish
+
+// *** lOGICAL ASSIGNMENT OPERATOR ***
+
+// The logical AND assignment (i.e. &&= ) operator only assigns when a variable is truthy,
+// while the logical OR assignment (i.e. ||= ) operator would assign when the variable is falsy —
+
+const myBio = {
+  name: 'Deuba',
+  age: 0,
+  occupation: ''
+};
+
+myBio.name ||= 'Dina';
+console.log(myBio.name); // Deuba
+
+myBio.occupation ||= 'Engineer';
+console.log(myBio.occupation); // Engineer;
+
+console.log(myBio);
+// {name: "Deuba", age: 0, occupation: "Engineer"}
+
+myBio.name &&= 'Dina';
+console.log(myBio.name); // Dina
+
+myBio.occupation &&= 'Engineer';
+console.log(myBio.occupation);
