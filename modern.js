@@ -327,3 +327,20 @@ const invoice = `I bought ${apples} at the rate of ${unitPrice} per pound. I pai
 // console.log(invoice);
 // I bought 20 at the rate of 5 per pound. I paid $100.
 
+// ****** DEFAULT PARAMETERS ******
+
+// This feature enables us to initialize a parameter with a default value in function definition, which would only be considered if the said parameter is not provided (i.e. is undefined).
+// This is useful when we are required to make a function which can be called with or without any parameters —
+
+function sayHi(name = 'Joe Biden') {
+  // default parameter = "Joe Biden";
+  return `Hello ${name}!`;
+}
+
+// without argument
+const defaultString = sayHi();
+// console.log(defaultString); // Hello Joe Biden!
+
+// with argument
+const userString = sayHi('Donald Trump');
+// console.log(userString); // Hello Donald Trump!
