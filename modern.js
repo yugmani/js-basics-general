@@ -253,27 +253,27 @@ const myBio = {
 };
 
 myBio.name ||= 'Dina';
-console.log(myBio.name); // Deuba
+// console.log(myBio.name); // Deuba
 
 myBio.occupation ||= 'Engineer';
-console.log(myBio.occupation); // Engineer;
+// console.log(myBio.occupation); // Engineer;
 
 myBio.isEnrolled ||= true;
-console.log(myBio.isEnrolled);
+// console.log(myBio.isEnrolled);
 
-console.log(myBio);
+// console.log(myBio);
 // {name: "Deuba", age: 0, occupation: "Engineer", isEnrolled: true}
 
 myBio.name &&= 'Dina';
-console.log(myBio.name); // Dina
+// console.log(myBio.name); // Dina
 
 myBio.occupation &&= 'Coder';
-console.log(myBio.occupation); // Coder
+// console.log(myBio.occupation); // Coder
 
 myBio.isAdmin &&= true;
-console.log(myBio.isAdmin); // undefined
+// console.log(myBio.isAdmin); // undefined
 
-console.log(myBio);
+// console.log(myBio);
 // {name: "Dina", age: 0, occupation: "Coder", isEnrolled: true}
 
 // ********************************
@@ -291,5 +291,39 @@ messArray.forEach(item => {
   countArr[item]++;
 });
 
-console.log(countArr);
+// console.log(countArr);
 // {1: 2, 2: 1, 3: 3, 4: 2}
+
+// ****** Numeric Separators ******
+
+// JavaScript has learnt to exclude underscores while reading numbers. This improves code readability while we are dealing with big numbers —
+
+const saving = 1_000_00;
+// console.log(saving);    // 100000
+
+const deposit = 1_000_000_000;
+// console.log(deposit); // 1000000000
+
+const balance = saving + deposit;
+// console.log(balance); // 1000100000
+
+// ****** Template Literals *******
+
+// Template literals make it easier to deal with strings.
+// We can get rid of the escape characters and get the output exactly as it is in the code, by wrapping it up with the back tick symbols (i.e. `) —
+
+const message = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, amet.`;
+
+// console.log(message);
+// Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, amet.
+
+// Expression Interpolation:
+// to add some sort of expression sandwiched between strings, and code: ${expression}
+
+const apples = 20;
+const unitPrice = 5;
+const totalPrice = apples * unitPrice;
+const invoice = `I bought ${apples} at the rate of ${unitPrice} per pound. I paid $${totalPrice}.`;
+// console.log(invoice);
+// I bought 20 at the rate of 5 per pound. I paid $100.
+
